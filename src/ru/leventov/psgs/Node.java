@@ -2,6 +2,8 @@ package ru.leventov.psgs;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import ru.leventov.psgs.io.DataInput;
+import ru.leventov.psgs.io.DataOutput;
 import ru.leventov.psgs.io.DataWritable;
 
 import java.io.IOException;
@@ -82,6 +84,14 @@ public abstract class Node implements DataWritable {
                 uniqueEdgeAction.accept(modelIds[i], (UniqueEdge<?, ?, ?>) adj);
             }
         }
+    }
+
+    @Override
+    public void readData(DataInput in) {
+    }
+
+    @Override
+    public void writeData(DataOutput out) {
     }
 
     /**

@@ -34,6 +34,8 @@ public abstract class Graph {
 
     public abstract Node getOrCreateNode(int id, IntFunction<Node> producer);
 
+    public abstract boolean isNodeIdUsed(int nodeId);
+
     public abstract void removeNode(Node node);
 
     public abstract Node removeNode(int nodeId);

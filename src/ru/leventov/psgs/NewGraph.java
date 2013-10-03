@@ -97,6 +97,15 @@ public class NewGraph extends Graph {
     }
 
     @Override
+    public boolean isNodeIdUsed(int nodeId) {
+        if (nodeId != 0) {
+            return nodes.containsKey(nodeId);
+        } else {
+            throw new IllegalArgumentException("Node id couldn't be 0.");
+        }
+    }
+
+    @Override
     public void removeNode(Node node) {
         if (node.getGraph() != this)
             throw new IllegalArgumentException();

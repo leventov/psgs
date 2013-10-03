@@ -10,7 +10,13 @@ abstract class AbstractDirectedEdgeModel<
 
     AbstractDirectedEdgeModel(Graph graph) {
         super(graph);
-        reverseModel = newModel(getReverseClass(), graph);
+        reverseModel = newDirectedModel(getReverseClass(), graph, this);
+        reverseId = reverseModel.getId();
+    }
+
+    AbstractDirectedEdgeModel(Graph graph, REVERSED reverseModel) {
+        super(graph);
+        this.reverseModel = reverseModel;
         reverseId = reverseModel.getId();
     }
 

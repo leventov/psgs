@@ -5,7 +5,7 @@ import ru.leventov.psgs.io.DataInput;
 import ru.leventov.psgs.io.DataOutput;
 import ru.leventov.psgs.io.DataWritable;
 
-public class Person extends Node implements DataWritable {
+public class Person extends Node {
     boolean source;
     private int friendCount;
 

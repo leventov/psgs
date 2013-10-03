@@ -10,6 +10,10 @@ public abstract class DirectedEdgeModel<
         super(graph);
     }
 
+    protected DirectedEdgeModel(Graph graph, REVERSED reverseModel) {
+        super(graph, reverseModel);
+    }
+
     @Override
     void putReverse(S source, int targetId, ED data) {
         getNode(targetId).getEdges(getReverse()).addReverse(source.getId(), data);

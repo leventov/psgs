@@ -75,7 +75,7 @@ public class ExistingGraph extends Graph implements Closeable {
     private UniqueEdgeModel[] uniqueEdgeModels = new UniqueEdgeModel[256];
     private EdgeModel[] edgeModels = new EdgeModel[256];
 
-    private static final int NODE_CACHE_SIZE = 1 << 20;
+    private static final int NODE_CACHE_SIZE = 1 << 18;
     private static int cacheIndex(int id) {
         int x = id;
         x ^= (x >>> 16);
@@ -266,6 +266,22 @@ public class ExistingGraph extends Graph implements Closeable {
         } else {
             throw new IllegalArgumentException("Node couldn't be contained in 2 graphs simultaneously");
         }
+    }
+
+    @Override
+    public boolean isNodeIdUsed(int nodeId) {
+        if (nodeId == 0)
+            throw new IllegalArgumentException("Node id couldn't be 0.");
+
+        Node node = getNew(nodeId);
+        if (node == REMOVED) return false;
+        if (node != null) return true;
+
+        node = getLoaded(nodeId);
+        if (node != null) return true;
+
+        ByteBuffer descriptor = nodeIndex.get(nodeId);
+        return descriptor != null;
     }
 
     @Override

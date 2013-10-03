@@ -8,7 +8,7 @@ import ru.leventov.psgs.io.DataOutput;
 import ru.leventov.psgs.io.DataWriter;
 import ru.leventov.psgs.io.NoData;
 
-public class Friendship extends ArcModel<Person, Person, NoData> implements DataWriter<NoData> {
+public class Friendship extends ArcModel<Person, Person, NoData> {
 
     public Friendship(Graph graph) {
         super(graph);

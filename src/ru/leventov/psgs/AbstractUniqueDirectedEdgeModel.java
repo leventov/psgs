@@ -14,6 +14,12 @@ abstract class AbstractUniqueDirectedEdgeModel<
         reverseId = reverseModel.getId();
     }
 
+    AbstractUniqueDirectedEdgeModel(Graph graph, REVERSED reverseModel) {
+        super(graph);
+        this.reverseModel = reverseModel;
+        reverseId = reverseModel.getId();
+    }
+
     protected abstract Class<REVERSED> getReverseClass();
 
     final byte getReverseId() {

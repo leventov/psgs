@@ -10,6 +10,10 @@ public abstract class UniqueDirectedReversedUniqueEdgeModel<
         super(graph);
     }
 
+    protected UniqueDirectedReversedUniqueEdgeModel(Graph graph, REVERSED reverseModel) {
+        super(graph, reverseModel);
+    }
+
     @Override
     void putReverse(S source, int targetId, ED data) {
         // noinspection unchecked
