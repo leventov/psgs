@@ -3,7 +3,7 @@ Persistent Structured Graph Storage
 
 Features:
 
- - Data is modelled by Java classes (see [VK test](src/ru/leventov/psgs/test/vk/)
+ - Data is modelled by Java classes (see [VK test](src/ru/leventov/psgs/test/vk/))
  
  - Directed, undirected, unique, reversible edges (ex. Parent -- Child)
  
@@ -11,32 +11,26 @@ Features:
  
  - Pretty fast work with graphs, stored partially on disk
  
- But:
+But:
+
+ - Single-threaded access only
  
-  - Single-threaded access only
-  
-  - Copy-on-write modifications only
-  
-  - Limits: 4 billions of nodes (32-bit identifiers), 256 TB max size of the database (40-bit offsets)
-  
-  - The single node index (lack of indexes per node class)
+ - Copy-on-write modifications only
+ 
+ - Limits: 4 billions of nodes (32-bit identifiers), 256 TB max size of the database (40-bit offsets)
+ 
+ - The single node index (lack of indexes per node class)
 
 
-Implementation
---------------
-
+### Implementation ###
 B-tree index: 4096-byte nodes, 12-byte entries, 339 entries in leaf nodes, 253 entries in inner nodes.
 
 
-VK test
--------
-
+### VK test ###
 66 millions of Persons, 1,4 billions of Friendships, 7,5 GB on disk.
 
 
-License
--------
-
+### License ###
 The MIT License (MIT)
 
 Copyright (c) 2013 Roma Leventov <http://www.leventov.ru>
